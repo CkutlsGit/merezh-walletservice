@@ -10,7 +10,7 @@ public class WalletException extends RuntimeException {
 
     public WalletException(String message) {
         super(message);
-        this.code = HttpStatus.BAD_GATEWAY;
+        this.code = HttpStatus.BAD_REQUEST;
     }
 
     public WalletException(String message, HttpStatus code) {

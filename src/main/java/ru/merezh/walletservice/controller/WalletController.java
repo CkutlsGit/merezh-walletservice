@@ -31,7 +31,7 @@ public class WalletController {
     }
 
     @PostMapping("/balance/sub")
-    public ResponseEntity<BigDecimal> subBalance(@RequestHeader("X-User-Id") long userId, BigDecimal sub) {
+    public ResponseEntity<BigDecimal> subBalance(@RequestHeader("X-User-Id") long userId,@RequestBody BigDecimal sub) {
         return ResponseEntity.ok().body(walletService.subWallet(userId, sub));
     }
 
