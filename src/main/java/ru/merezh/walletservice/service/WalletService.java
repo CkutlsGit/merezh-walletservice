@@ -46,7 +46,7 @@ public class WalletService {
     @Transactional
     public BigDecimal sumWallet(long id, BigDecimal sum) {
         Wallet wallet = walletRepository.getWalletByUserId(id)
-                .orElseThrow(() -> new WalletException("Кошелек с id " + id + " не существует", HttpStatus.NOT_FOUND));
+                .orElseGet(() -> walletRepository.save(new Wallet(id, BigDecimal.ZERO)));
 
         wallet.setBalance(wallet.getBalance().add(sum));
 
@@ -56,7 +56,7 @@ public class WalletService {
     @Transactional
     public BigDecimal subWallet(long id, BigDecimal sub) {
         Wallet wallet = walletRepository.getWalletByUserId(id)
-                .orElseThrow(() -> new WalletException("Кошелек с id " + id + " не существует", HttpStatus.NOT_FOUND));
+                .orElseGet(() -> walletRepository.save(new Wallet(id, BigDecimal.ZERO)));
 
         if (wallet.getBalance().compareTo(sub) < 0) {
             throw new WalletException("Недостаточно средств на кошельке пользователя");
