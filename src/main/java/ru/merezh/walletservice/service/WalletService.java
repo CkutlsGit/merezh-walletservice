@@ -27,11 +27,10 @@ public class WalletService {
 
     @Transactional
     public BigDecimal getBalanceWallet(long id) {
-        if (!walletRepository.existsWalletByUserId(id)) {
-            return walletRepository.save(new Wallet(id)).getBalance();
-        }
+        Wallet wallet = walletRepository.getWalletByUserId(id)
+                .orElseThrow(() -> new WalletException("Кошелек с id " + id + " не существует", HttpStatus.NOT_FOUND));
 
-        return walletRepository.findWalletByUserId(id).getBalance();
+        return wallet.getBalance();
     }
 
     @Transactional
