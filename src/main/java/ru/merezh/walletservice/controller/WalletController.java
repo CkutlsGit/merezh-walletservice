@@ -3,6 +3,7 @@ package ru.merezh.walletservice.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.merezh.walletservice.dto.AmountDto;
 import ru.merezh.walletservice.entity.Wallet;
 import ru.merezh.walletservice.service.WalletService;
 
@@ -26,13 +27,13 @@ public class WalletController {
     }
 
     @PostMapping("/balance/sum")
-    public ResponseEntity<BigDecimal> sumBalance(@RequestHeader("X-User-Id") long userId,@RequestBody BigDecimal sum) {
-        return ResponseEntity.ok().body(walletService.sumWallet(userId, sum));
+    public ResponseEntity<BigDecimal> sumBalance(@RequestHeader("X-User-Id") long userId, @RequestBody AmountDto sum) {
+        return ResponseEntity.ok().body(walletService.sumWallet(userId, sum.amount()));
     }
 
     @PostMapping("/balance/sub")
-    public ResponseEntity<BigDecimal> subBalance(@RequestHeader("X-User-Id") long userId,@RequestBody BigDecimal sub) {
-        return ResponseEntity.ok().body(walletService.subWallet(userId, sub));
+    public ResponseEntity<BigDecimal> subBalance(@RequestHeader("X-User-Id") long userId,@RequestBody AmountDto sub) {
+        return ResponseEntity.ok().body(walletService.subWallet(userId, sub.amount()));
     }
 
     @DeleteMapping("/delete/{id}")
