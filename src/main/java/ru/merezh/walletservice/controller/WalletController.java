@@ -26,7 +26,7 @@ public class WalletController {
     }
 
     @PostMapping("/balance/sum")
-    public ResponseEntity<BigDecimal> sumBalance(@RequestHeader("X-User-Id") long userId, BigDecimal sum) {
+    public ResponseEntity<BigDecimal> sumBalance(@RequestHeader("X-User-Id") long userId,@RequestBody BigDecimal sum) {
         return ResponseEntity.ok().body(walletService.sumWallet(userId, sum));
     }
 
