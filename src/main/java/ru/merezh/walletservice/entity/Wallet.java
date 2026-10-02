@@ -1,5 +1,6 @@
 package ru.merezh.walletservice.entity;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -14,6 +15,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Entity
 @Table(name = "wallets")
+@Schema(description = "Данные кошелька пользователя")
 public class Wallet {
 
    public Wallet(long id) {
