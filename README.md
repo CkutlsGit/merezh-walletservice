@@ -2,7 +2,7 @@
 
 Microservice responsible for managing user wallets and balances.
 
-📖 In Russian: [перевод на русский](#)
+📖 In Russian: [перевод на русский](https://github.com/CkutlsGit/merezh-walletservice/blob/main/README.ru.md)
 
 ## 📋 Overview
 
