@@ -13,7 +13,7 @@ Wallet Service - это микросервис на Spring Boot, который 
 **Backend**
 
 - Java 21 - основной язык
-- Spring Boot 3 - фреймворк приложения
+- Spring Boot 4 - фреймворк приложения
 - Spring Data JPA - доступ к БД и ORM
 - RestTemplate - синхронные HTTP-вызовы (для будущих интеграций)
 
