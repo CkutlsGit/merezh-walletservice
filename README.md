@@ -15,7 +15,7 @@ The service stores only balances - it does not process payments itself. Payment 
 **Backend**
 
 - Java 21 - core language
-- Spring Boot 3 - application framework
+- Spring Boot 4 - application framework
 - Spring Data JPA - database access and ORM
 - RestTemplate - synchronous HTTP calls (for future integrations)
 
